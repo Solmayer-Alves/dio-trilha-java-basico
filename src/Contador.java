@@ -5,7 +5,7 @@ public class Contador {
 
         Scanner sc = new Scanner(System.in);
             int num1, num2;
-
+        System.out.println(" ==== DESAFIO - CONTROLE DE FLUXO ==== ");
         System.out.println("Digite o primeiro número:");
             num1 = sc.nextInt();
 
@@ -14,5 +14,17 @@ public class Contador {
 
         sc.close();
 
+    }
+
+    static void contar(int num1, int num2){
+        if (num1 > num2) {
+            System.out.println("O primeiro parâmetro não pode ser maior que o segundo.");
+        }
+            int contagem = num2 - num1;
+                System.out.println(" A quantidade de interações entre "
+                        + num1 + " e " + num2 + " são "
+                        + contagem + "vezes.");
+            for (int i = 1; i <= contagem; i++)
+                System.out.println("Imprimindo número: " + i);
     }
 }
