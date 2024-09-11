@@ -1,3 +1,5 @@
+import exceptions.ParametrosInvalidosException;
+
 import java.util.Scanner;
 
 public class Contador {
@@ -12,18 +14,25 @@ public class Contador {
         System.out.println("Digite o segundo número:");
             num2 = sc.nextInt();
 
-        sc.close();
+        try {
+            contar(num1, num2);
 
+        }catch (ParametrosInvalidosException e){
+            System.out.println(e.getMessage());
+
+        }finally {
+            sc.close();
+        }
     }
 
     static void contar(int num1, int num2){
         if (num1 > num2) {
-            System.out.println("O primeiro parâmetro não pode ser maior que o segundo.");
+            throw new ParametrosInvalidosException("O primeiro parâmetro não pode ser maior que o segundo.");
         }
             int contagem = num2 - num1;
-                System.out.println(" A quantidade de interações entre "
+                System.out.println("A quantidade de interações entre "
                         + num1 + " e " + num2 + " são "
-                        + contagem + "vezes.");
+                        + contagem + " vezes.");
             for (int i = 1; i <= contagem; i++)
                 System.out.println("Imprimindo número: " + i);
     }
